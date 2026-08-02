@@ -1,0 +1,1 @@
+This is a sample file used by ContactUsTests to exercise the file-upload field on the Contact Us form.
