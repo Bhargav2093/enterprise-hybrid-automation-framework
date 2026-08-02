@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Smoke Suite" parallel="tests" thread-count="2" verbose="1">
+    <listeners>
+        <listener class-name="com.automation.hybrid.listeners.TestListener"/>
+        <listener class-name="com.automation.hybrid.listeners.SelfHealingSuiteListener"/>
+        <listener class-name="com.automation.hybrid.listeners.ExtentReportSuiteListener"/>
+        <listener class-name="com.automation.hybrid.listeners.RetryTransformer"/>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="UI Smoke">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.hybrid.tests.ui.RegistrationLoginTests"/>
+            <class name="com.automation.hybrid.tests.ui.ProductsCartTests"/>
+        </classes>
+    </test>
+
+    <test name="API Smoke">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.automation.hybrid.tests.api.PostsApiTests"/>
+        </classes>
+    </test>
+</suite>
