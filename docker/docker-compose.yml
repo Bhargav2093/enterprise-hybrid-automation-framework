@@ -1,0 +1,40 @@
+version: "3.8"
+
+# Self-hosted Selenium Grid for execution.mode=grid.
+# Start:  docker compose -f docker/docker-compose.yml up -d
+# Stop:   docker compose -f docker/docker-compose.yml down
+# Console: http://localhost:4444/ui
+#
+# NOTE: config-only / not verified in this environment (no local Docker installation available
+# at build time). Review before relying on it; verify with `docker compose config` and a real
+# run once Docker is available.
+services:
+  selenium-hub:
+    image: selenium/hub:4.24.0
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+
+  chrome-node:
+    image: selenium/node-chrome:4.24.0
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=2
+
+  firefox-node:
+    image: selenium/node-firefox:4.24.0
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=2

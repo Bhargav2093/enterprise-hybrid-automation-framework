@@ -1,0 +1,121 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    name: Smoke suite (local headless Chrome + API)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Run smoke suite
+        run: mvn -B clean test -DsuiteXmlFile=src/test/resources/testng-smoke.xml -Dheadless=true -Dexecution.mode=local
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-smoke
+          path: target/allure-results
+
+      - name: Upload Surefire reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports-smoke
+          path: target/surefire-reports
+
+      - name: Upload self-healing report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: self-healing-report
+          path: target/self-healing-report.json
+
+  grid-execution:
+    name: Smoke suite (Selenium Grid via GH Actions services)
+    runs-on: ubuntu-latest
+    services:
+      selenium-hub:
+        image: selenium/hub:4.24.0
+        ports:
+          - 4444:4444
+          - 4442:4442
+          - 4443:4443
+      chrome-node:
+        image: selenium/node-chrome:4.24.0
+        env:
+          SE_EVENT_BUS_HOST: selenium-hub
+          SE_EVENT_BUS_PUBLISH_PORT: 4442
+          SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+        options: >-
+          --shm-size=2g
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Wait for Grid to be ready
+        run: |
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:4444/wd/hub/status | grep -q '"ready": *true'; then
+              echo "Grid is ready"; exit 0
+            fi
+            sleep 2
+          done
+          echo "Grid did not become ready in time"; exit 1
+
+      - name: Run smoke suite against Grid
+        run: mvn -B clean test -DsuiteXmlFile=src/test/resources/testng-smoke.xml -Dexecution.mode=grid -Dgrid.url=http://localhost:4444/wd/hub
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-grid
+          path: target/allure-results
+
+  browserstack:
+    name: Smoke suite (BrowserStack Automate)
+    runs-on: ubuntu-latest
+    if: ${{ vars.RUN_BROWSERSTACK_CI == 'true' }}
+    env:
+      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Run smoke suite on BrowserStack
+        run: mvn -B clean test -DsuiteXmlFile=src/test/resources/testng-smoke.xml -Dexecution.mode=browserstack
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-browserstack
+          path: target/allure-results
