@@ -1,0 +1,321 @@
+{
+  "homePage": {
+    "productsNavLink": [
+      {"type": "css", "value": "a[href='/products']"},
+      {"type": "linktext", "value": "Products"},
+      {"type": "xpath", "value": "//a[contains(text(),'Products')]"}
+    ],
+    "cartNavLink": [
+      {"type": "css", "value": "a[href='/view_cart']"},
+      {"type": "xpath", "value": "//a[contains(@href,'view_cart')]"}
+    ],
+    "signupLoginNavLink": [
+      {"type": "css", "value": "a[href='/login']"},
+      {"type": "xpath", "value": "//a[contains(text(),'Signup / Login')]"}
+    ],
+    "logoutNavLink": [
+      {"type": "css", "value": "a[href='/logout']"},
+      {"type": "xpath", "value": "//a[contains(text(),'Logout')]"}
+    ],
+    "deleteAccountNavLink": [
+      {"type": "css", "value": "a[href='/delete_account']"},
+      {"type": "xpath", "value": "//a[contains(text(),'Delete Account')]"}
+    ],
+    "contactUsNavLink": [
+      {"type": "css", "value": "a[href='/contact_us']"},
+      {"type": "xpath", "value": "//a[contains(text(),'Contact us')]"}
+    ],
+    "loggedInAsText": [
+      {"type": "xpath", "value": "//a[contains(text(),'Logged in as')]"},
+      {"type": "css", "value": "li:has(a[href='/logout'])"}
+    ],
+    "subscribeEmailInput": [
+      {"type": "id", "value": "susbscribe_email"},
+      {"type": "css", "value": "#susbscribe_email"},
+      {"type": "xpath", "value": "//input[contains(@id,'subscribe') and @type='email']"}
+    ],
+    "subscribeButton": [
+      {"type": "id", "value": "subscribe"},
+      {"type": "css", "value": "#subscribe"},
+      {"type": "xpath", "value": "//button[contains(@id,'subscribe')]"}
+    ],
+    "subscribeSuccessMessage": [
+      {"type": "css", "value": ".alert-success"},
+      {"type": "xpath", "value": "//div[contains(@class,'alert-success')]"}
+    ]
+  },
+
+  "loginSignupPage": {
+    "signupNameInput": [
+      {"type": "css", "value": "input[data-qa='signup-name']"},
+      {"type": "xpath", "value": "//input[@placeholder='Name']"},
+      {"type": "name", "value": "name"}
+    ],
+    "signupEmailInput": [
+      {"type": "css", "value": "input[data-qa='signup-email']"},
+      {"type": "xpath", "value": "//form[contains(.,'Signup')]//input[@placeholder='Email Address']"}
+    ],
+    "signupButton": [
+      {"type": "css", "value": "button[data-qa='signup-button']"},
+      {"type": "xpath", "value": "//button[contains(text(),'Signup')]"}
+    ],
+    "signupErrorMessage": [
+      {"type": "xpath", "value": "//p[contains(text(),'Email Address already exist')]"},
+      {"type": "css", "value": ".signup-form p"}
+    ],
+    "loginEmailInput": [
+      {"type": "css", "value": "input[data-qa='login-email']"},
+      {"type": "xpath", "value": "//form[contains(.,'Login')]//input[@placeholder='Email Address']"}
+    ],
+    "loginPasswordInput": [
+      {"type": "css", "value": "input[data-qa='login-password']"},
+      {"type": "xpath", "value": "//form[contains(.,'Login')]//input[@placeholder='Password']"}
+    ],
+    "loginButton": [
+      {"type": "css", "value": "button[data-qa='login-button']"},
+      {"type": "xpath", "value": "//button[contains(text(),'Login')]"}
+    ],
+    "loginErrorMessage": [
+      {"type": "xpath", "value": "//p[contains(text(),'Your email or password is incorrect')]"},
+      {"type": "css", "value": ".login-form p"}
+    ]
+  },
+
+  "accountInfoPage": {
+    "genderMrRadio": [
+      {"type": "id", "value": "id_gender1"},
+      {"type": "css", "value": "input[value='Mr']"}
+    ],
+    "passwordInput": [
+      {"type": "id", "value": "password"},
+      {"type": "css", "value": "input[data-qa='password']"}
+    ],
+    "daysSelect": [
+      {"type": "id", "value": "days"},
+      {"type": "css", "value": "select[data-qa='days']"}
+    ],
+    "monthsSelect": [
+      {"type": "id", "value": "months"},
+      {"type": "css", "value": "select[data-qa='months']"}
+    ],
+    "yearsSelect": [
+      {"type": "id", "value": "years"},
+      {"type": "css", "value": "select[data-qa='years']"}
+    ],
+    "firstNameInput": [
+      {"type": "id", "value": "first_name"},
+      {"type": "css", "value": "input[data-qa='first_name']"}
+    ],
+    "lastNameInput": [
+      {"type": "id", "value": "last_name"},
+      {"type": "css", "value": "input[data-qa='last_name']"}
+    ],
+    "addressInput": [
+      {"type": "id", "value": "address1"},
+      {"type": "css", "value": "input[data-qa='address']"}
+    ],
+    "countrySelect": [
+      {"type": "id", "value": "country"},
+      {"type": "css", "value": "select[data-qa='country']"}
+    ],
+    "stateInput": [
+      {"type": "id", "value": "state"},
+      {"type": "css", "value": "input[data-qa='state']"}
+    ],
+    "cityInput": [
+      {"type": "id", "value": "city"},
+      {"type": "css", "value": "input[data-qa='city']"}
+    ],
+    "zipcodeInput": [
+      {"type": "id", "value": "zipcode"},
+      {"type": "css", "value": "input[data-qa='zipcode']"}
+    ],
+    "mobileNumberInput": [
+      {"type": "id", "value": "mobile_number"},
+      {"type": "css", "value": "input[data-qa='mobile_number']"}
+    ],
+    "createAccountButton": [
+      {"type": "css", "value": "button[data-qa='create-account']"},
+      {"type": "xpath", "value": "//button[contains(text(),'Create Account')]"}
+    ]
+  },
+
+  "accountCreatedPage": {
+    "accountCreatedHeading": [
+      {"type": "css", "value": "h2[data-qa='account-created']"},
+      {"type": "xpath", "value": "//h2[contains(text(),'Account Created')]"}
+    ],
+    "continueButton": [
+      {"type": "css", "value": "a[data-qa='continue-button']"},
+      {"type": "xpath", "value": "//a[contains(text(),'Continue')]"}
+    ]
+  },
+
+  "accountDeletedPage": {
+    "accountDeletedHeading": [
+      {"type": "css", "value": "h2[data-qa='account-deleted']"},
+      {"type": "xpath", "value": "//h2[contains(text(),'Account Deleted')]"}
+    ],
+    "continueButton": [
+      {"type": "css", "value": "a[data-qa='continue-button']"},
+      {"type": "xpath", "value": "//a[contains(text(),'Continue')]"}
+    ]
+  },
+
+  "productsPage": {
+    "allProductsHeading": [
+      {"type": "xpath", "value": "//h2[contains(text(),'All Products')]"},
+      {"type": "css", "value": ".title.text-center"}
+    ],
+    "searchInput": [
+      {"type": "id", "value": "search_product"},
+      {"type": "css", "value": "input#search_product"}
+    ],
+    "searchButton": [
+      {"type": "id", "value": "submit_search"},
+      {"type": "css", "value": "button#submit_search"}
+    ],
+    "searchedProductsHeading": [
+      {"type": "xpath", "value": "//h2[contains(text(),'Searched Products')]"},
+      {"type": "css", "value": ".title.text-center"}
+    ],
+    "productList": [
+      {"type": "css", "value": ".features_items .product-image-wrapper"},
+      {"type": "xpath", "value": "//div[contains(@class,'product-image-wrapper')]"}
+    ],
+    "firstProductAddToCart": [
+      {"type": "css", "value": ".features_items .product-image-wrapper:first-of-type .add-to-cart"},
+      {"type": "xpath", "value": "(//div[contains(@class,'product-image-wrapper')]//a[contains(@class,'add-to-cart')])[1]"}
+    ],
+    "viewCartModalLink": [
+      {"type": "css", "value": ".modal-content a[href='/view_cart']"},
+      {"type": "xpath", "value": "//div[contains(@class,'modal-content')]//a[contains(text(),'View Cart')]"}
+    ],
+    "continueShoppingButton": [
+      {"type": "css", "value": ".modal-content button.close-modal"},
+      {"type": "xpath", "value": "//button[contains(text(),'Continue Shopping')]"}
+    ]
+  },
+
+  "productDetailsPage": {
+    "productName": [
+      {"type": "css", "value": ".product-information h2"},
+      {"type": "xpath", "value": "//div[contains(@class,'product-information')]//h2"}
+    ],
+    "quantityInput": [
+      {"type": "id", "value": "quantity"},
+      {"type": "css", "value": "input#quantity"}
+    ],
+    "addToCartButton": [
+      {"type": "css", "value": ".product-information button.cart"},
+      {"type": "xpath", "value": "//div[contains(@class,'product-information')]//button[contains(text(),'Add to cart')]"}
+    ]
+  },
+
+  "cartPage": {
+    "cartItemRows": [
+      {"type": "css", "value": "#cart_info tbody tr"},
+      {"type": "xpath", "value": "//table[@id='cart_info']//tbody/tr"}
+    ],
+    "proceedToCheckoutButton": [
+      {"type": "xpath", "value": "//a[contains(text(),'Proceed To Checkout')]"},
+      {"type": "css", "value": ".cart_total_price ~ .check_out, a.check_out"}
+    ],
+    "emptyCartMessage": [
+      {"type": "xpath", "value": "//b[contains(text(),'Cart is empty')]"},
+      {"type": "css", "value": "#empty_cart"}
+    ]
+  },
+
+  "checkoutPage": {
+    "addressDetailsSection": [
+      {"type": "id", "value": "address_delivery"},
+      {"type": "css", "value": "#address_delivery"}
+    ],
+    "commentTextarea": [
+      {"type": "css", "value": "textarea[name='message']"},
+      {"type": "xpath", "value": "//textarea[@name='message']"}
+    ],
+    "placeOrderLink": [
+      {"type": "xpath", "value": "//a[contains(text(),'Place Order')]"},
+      {"type": "css", "value": "a.check_out"}
+    ]
+  },
+
+  "paymentPage": {
+    "nameOnCardInput": [
+      {"type": "css", "value": "input[data-qa='name-on-card']"},
+      {"type": "name", "value": "name_on_card"}
+    ],
+    "cardNumberInput": [
+      {"type": "css", "value": "input[data-qa='card-number']"},
+      {"type": "name", "value": "card_number"}
+    ],
+    "cvcInput": [
+      {"type": "css", "value": "input[data-qa='cvc']"},
+      {"type": "name", "value": "cvc"}
+    ],
+    "expiryMonthInput": [
+      {"type": "css", "value": "input[data-qa='expiry-month']"},
+      {"type": "name", "value": "expiry_month"}
+    ],
+    "expiryYearInput": [
+      {"type": "css", "value": "input[data-qa='expiry-year']"},
+      {"type": "name", "value": "expiry_year"}
+    ],
+    "payButton": [
+      {"type": "css", "value": "button[data-qa='pay-button']"},
+      {"type": "xpath", "value": "//button[contains(text(),'Pay and Confirm Order')]"}
+    ]
+  },
+
+  "orderPlacedPage": {
+    "orderPlacedHeading": [
+      {"type": "css", "value": ".title.text-center"},
+      {"type": "xpath", "value": "//h2[contains(text(),'Order Placed')]"}
+    ],
+    "downloadInvoiceLink": [
+      {"type": "xpath", "value": "//a[contains(text(),'Download Invoice')]"},
+      {"type": "css", "value": ".btn.btn-default.check_out"}
+    ],
+    "continueButton": [
+      {"type": "css", "value": "a[data-qa='continue-button']"},
+      {"type": "xpath", "value": "//a[contains(text(),'Continue')]"}
+    ]
+  },
+
+  "contactUsPage": {
+    "nameInput": [
+      {"type": "css", "value": "input[data-qa='name']"},
+      {"type": "name", "value": "name"}
+    ],
+    "emailInput": [
+      {"type": "css", "value": "input[data-qa='email']"},
+      {"type": "name", "value": "email"}
+    ],
+    "subjectInput": [
+      {"type": "css", "value": "input[data-qa='subject']"},
+      {"type": "name", "value": "subject"}
+    ],
+    "messageTextarea": [
+      {"type": "css", "value": "textarea[data-qa='message']"},
+      {"type": "name", "value": "message"}
+    ],
+    "uploadFileInput": [
+      {"type": "name", "value": "upload_file"},
+      {"type": "css", "value": "input[type='file']"}
+    ],
+    "submitButton": [
+      {"type": "css", "value": "input[data-qa='submit-button']"},
+      {"type": "id", "value": "submit"}
+    ],
+    "successMessage": [
+      {"type": "css", "value": ".status.alert-success"},
+      {"type": "xpath", "value": "//div[contains(@class,'alert-success')]"}
+    ],
+    "homeButton": [
+      {"type": "css", "value": ".btn.btn-success"},
+      {"type": "xpath", "value": "//a[contains(@class,'btn-success')]"}
+    ]
+  }
+}
