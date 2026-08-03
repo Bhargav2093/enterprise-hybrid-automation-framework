@@ -4,6 +4,7 @@ import com.automation.hybrid.config.ConfigManager;
 import com.automation.hybrid.driver.BrowserContext;
 import com.automation.hybrid.driver.DriverFactory;
 import com.automation.hybrid.driver.DriverManager;
+import com.automation.hybrid.driver.OverlayDismisser;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -27,6 +28,7 @@ public abstract class BaseTest {
         DriverManager.setDriver(driver);
         baseUrl = ConfigManager.get("ui.base.url", "https://automationexercise.com");
         driver.get(baseUrl);
+        OverlayDismisser.dismissIfPresent(driver);
     }
 
     @AfterMethod(alwaysRun = true)
