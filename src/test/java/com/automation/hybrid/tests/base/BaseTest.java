@@ -1,6 +1,7 @@
 package com.automation.hybrid.tests.base;
 
 import com.automation.hybrid.config.ConfigManager;
+import com.automation.hybrid.driver.BotChallengeWaiter;
 import com.automation.hybrid.driver.BrowserContext;
 import com.automation.hybrid.driver.DriverFactory;
 import com.automation.hybrid.driver.DriverManager;
@@ -28,6 +29,7 @@ public abstract class BaseTest {
         DriverManager.setDriver(driver);
         baseUrl = ConfigManager.get("ui.base.url", "https://automationexercise.com");
         driver.get(baseUrl);
+        BotChallengeWaiter.waitForRealPage(driver);
         OverlayDismisser.dismissIfPresent(driver);
     }
 
