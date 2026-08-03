@@ -2,8 +2,10 @@
   "homePage": {
     "productsNavLink": [
       {"type": "css", "value": "a[href='/products']"},
+      {"type": "css", "value": "a[href^='/products']"},
       {"type": "linktext", "value": "Products"},
-      {"type": "xpath", "value": "//a[contains(text(),'Products')]"}
+      {"type": "xpath", "value": "//a[contains(text(),'Products')]"},
+      {"type": "xpath", "value": "//nav//a[contains(@href,'/products')]"}
     ],
     "cartNavLink": [
       {"type": "css", "value": "a[href='/view_cart']"},
@@ -11,7 +13,9 @@
     ],
     "signupLoginNavLink": [
       {"type": "css", "value": "a[href='/login']"},
-      {"type": "xpath", "value": "//a[contains(text(),'Signup / Login')]"}
+      {"type": "css", "value": "a[href^='/login']"},
+      {"type": "xpath", "value": "//a[contains(text(),'Signup / Login')]"},
+      {"type": "xpath", "value": "//nav//a[contains(@href,'/login')]"}
     ],
     "logoutNavLink": [
       {"type": "css", "value": "a[href='/logout']"},
