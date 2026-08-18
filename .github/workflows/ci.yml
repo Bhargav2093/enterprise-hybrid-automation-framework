@@ -8,6 +8,29 @@ on:
   workflow_dispatch:
 
 jobs:
+  selfhealing-benchmark:
+    name: Self-healing locator coverage (no browser needed)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Prove self-healing against every defined locator
+        run: mvn -B test -Pselfhealing-benchmark
+
+      - name: Upload benchmark artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: selfhealing-benchmark
+          path: samples/selfhealing-benchmark/
+
   smoke:
     name: Smoke suite (local headless Chrome + API)
     runs-on: ubuntu-latest

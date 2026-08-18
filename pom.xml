@@ -130,6 +130,15 @@
             <artifactId>commons-io</artifactId>
             <version>2.16.1</version>
         </dependency>
+
+        <!-- Mockito: mocks WebDriver for the self-healing benchmark (no real browser needed to
+             prove SelfHealingLocator's fallback behavior, see selfhealing/SelfHealingBenchmarkTest) -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.14.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -188,6 +197,12 @@
             <id>crossbrowser</id>
             <properties>
                 <suiteXmlFile>src/test/resources/testng-crossbrowser.xml</suiteXmlFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>selfhealing-benchmark</id>
+            <properties>
+                <suiteXmlFile>src/test/resources/testng-selfhealing-benchmark.xml</suiteXmlFile>
             </properties>
         </profile>
         <profile>
