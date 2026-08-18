@@ -1,0 +1,10 @@
+{
+  "pagesDefined" : 12,
+  "elementsDefined" : 70,
+  "elementsWithFallback" : 70,
+  "elementsWithFallbackPercent" : 100.0,
+  "singleCandidateElements" : 0,
+  "averageCandidatesPerElement" : 2.11,
+  "healingEventsProvenInThisRun" : 70,
+  "singleCandidateElementKeys" : [ ]
+}

@@ -1,0 +1,491 @@
+[ {
+  "page" : "homePage",
+  "elementKey" : "productsNavLink",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "a[href^='/products']",
+  "timestamp" : 1787050903.030577300
+}, {
+  "page" : "homePage",
+  "elementKey" : "cartNavLink",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//a[contains(@href,'view_cart')]",
+  "timestamp" : 1787050903.034184900
+}, {
+  "page" : "homePage",
+  "elementKey" : "signupLoginNavLink",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "a[href^='/login']",
+  "timestamp" : 1787050903.035279000
+}, {
+  "page" : "homePage",
+  "elementKey" : "logoutNavLink",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//a[contains(text(),'Logout')]",
+  "timestamp" : 1787050903.045182000
+}, {
+  "page" : "homePage",
+  "elementKey" : "deleteAccountNavLink",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//a[contains(text(),'Delete Account')]",
+  "timestamp" : 1787050903.047904100
+}, {
+  "page" : "homePage",
+  "elementKey" : "contactUsNavLink",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//a[contains(text(),'Contact us')]",
+  "timestamp" : 1787050903.049107300
+}, {
+  "page" : "homePage",
+  "elementKey" : "loggedInAsText",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "li:has(a[href='/logout'])",
+  "timestamp" : 1787050903.049107300
+}, {
+  "page" : "homePage",
+  "elementKey" : "subscribeEmailInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "#susbscribe_email",
+  "timestamp" : 1787050903.051465500
+}, {
+  "page" : "homePage",
+  "elementKey" : "subscribeButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "#subscribe",
+  "timestamp" : 1787050903.053536300
+}, {
+  "page" : "homePage",
+  "elementKey" : "subscribeSuccessMessage",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//div[contains(@class,'alert-success')]",
+  "timestamp" : 1787050903.054652000
+}, {
+  "page" : "loginSignupPage",
+  "elementKey" : "signupNameInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//input[@placeholder='Name']",
+  "timestamp" : 1787050903.054652000
+}, {
+  "page" : "loginSignupPage",
+  "elementKey" : "signupEmailInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//form[contains(.,'Signup')]//input[@placeholder='Email Address']",
+  "timestamp" : 1787050903.056724900
+}, {
+  "page" : "loginSignupPage",
+  "elementKey" : "signupButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//button[contains(text(),'Signup')]",
+  "timestamp" : 1787050903.057762200
+}, {
+  "page" : "loginSignupPage",
+  "elementKey" : "signupErrorMessage",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : ".signup-form p",
+  "timestamp" : 1787050903.058798900
+}, {
+  "page" : "loginSignupPage",
+  "elementKey" : "loginEmailInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//form[contains(.,'Login')]//input[@placeholder='Email Address']",
+  "timestamp" : 1787050903.059836900
+}, {
+  "page" : "loginSignupPage",
+  "elementKey" : "loginPasswordInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//form[contains(.,'Login')]//input[@placeholder='Password']",
+  "timestamp" : 1787050903.061912500
+}, {
+  "page" : "loginSignupPage",
+  "elementKey" : "loginButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//button[contains(text(),'Login')]",
+  "timestamp" : 1787050903.062949900
+}, {
+  "page" : "loginSignupPage",
+  "elementKey" : "loginErrorMessage",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : ".login-form p",
+  "timestamp" : 1787050903.063986800
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "genderMrRadio",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[value='Mr']",
+  "timestamp" : 1787050903.065028200
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "passwordInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[data-qa='password']",
+  "timestamp" : 1787050903.066064800
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "daysSelect",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "select[data-qa='days']",
+  "timestamp" : 1787050903.068149100
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "monthsSelect",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "select[data-qa='months']",
+  "timestamp" : 1787050903.069202000
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "yearsSelect",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "select[data-qa='years']",
+  "timestamp" : 1787050903.070324900
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "firstNameInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[data-qa='first_name']",
+  "timestamp" : 1787050903.071361800
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "lastNameInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[data-qa='last_name']",
+  "timestamp" : 1787050903.072398700
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "addressInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[data-qa='address']",
+  "timestamp" : 1787050903.074471700
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "countrySelect",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "select[data-qa='country']",
+  "timestamp" : 1787050903.076545900
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "stateInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[data-qa='state']",
+  "timestamp" : 1787050903.077583400
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "cityInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[data-qa='city']",
+  "timestamp" : 1787050903.078620400
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "zipcodeInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[data-qa='zipcode']",
+  "timestamp" : 1787050903.079679900
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "mobileNumberInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[data-qa='mobile_number']",
+  "timestamp" : 1787050903.080716200
+}, {
+  "page" : "accountInfoPage",
+  "elementKey" : "createAccountButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//button[contains(text(),'Create Account')]",
+  "timestamp" : 1787050903.082822100
+}, {
+  "page" : "accountCreatedPage",
+  "elementKey" : "accountCreatedHeading",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//h2[contains(text(),'Account Created')]",
+  "timestamp" : 1787050903.083869800
+}, {
+  "page" : "accountCreatedPage",
+  "elementKey" : "continueButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//a[contains(text(),'Continue')]",
+  "timestamp" : 1787050903.083869800
+}, {
+  "page" : "accountDeletedPage",
+  "elementKey" : "accountDeletedHeading",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//h2[contains(text(),'Account Deleted')]",
+  "timestamp" : 1787050903.084906400
+}, {
+  "page" : "accountDeletedPage",
+  "elementKey" : "continueButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//a[contains(text(),'Continue')]",
+  "timestamp" : 1787050903.086022700
+}, {
+  "page" : "productsPage",
+  "elementKey" : "allProductsHeading",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : ".title.text-center",
+  "timestamp" : 1787050903.087059200
+}, {
+  "page" : "productsPage",
+  "elementKey" : "searchInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input#search_product",
+  "timestamp" : 1787050903.088095700
+}, {
+  "page" : "productsPage",
+  "elementKey" : "searchButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "button#submit_search",
+  "timestamp" : 1787050903.089132300
+}, {
+  "page" : "productsPage",
+  "elementKey" : "searchedProductsHeading",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : ".title.text-center",
+  "timestamp" : 1787050903.090169100
+}, {
+  "page" : "productsPage",
+  "elementKey" : "productList",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//div[contains(@class,'product-image-wrapper')]",
+  "timestamp" : 1787050903.091206100
+}, {
+  "page" : "productsPage",
+  "elementKey" : "firstProductAddToCart",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "(//div[contains(@class,'product-image-wrapper')]//a[contains(@class,'add-to-cart')])[1]",
+  "timestamp" : 1787050903.093283200
+}, {
+  "page" : "productsPage",
+  "elementKey" : "viewCartModalLink",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//div[contains(@class,'modal-content')]//a[contains(text(),'View Cart')]",
+  "timestamp" : 1787050903.094320100
+}, {
+  "page" : "productsPage",
+  "elementKey" : "continueShoppingButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//button[contains(text(),'Continue Shopping')]",
+  "timestamp" : 1787050903.095357000
+}, {
+  "page" : "productDetailsPage",
+  "elementKey" : "productName",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//div[contains(@class,'product-information')]//h2",
+  "timestamp" : 1787050903.096393200
+}, {
+  "page" : "productDetailsPage",
+  "elementKey" : "quantityInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input#quantity",
+  "timestamp" : 1787050903.098486600
+}, {
+  "page" : "productDetailsPage",
+  "elementKey" : "addToCartButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//div[contains(@class,'product-information')]//button[contains(text(),'Add to cart')]",
+  "timestamp" : 1787050903.099523100
+}, {
+  "page" : "cartPage",
+  "elementKey" : "cartItemRows",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//table[@id='cart_info']//tbody/tr",
+  "timestamp" : 1787050903.100559100
+}, {
+  "page" : "cartPage",
+  "elementKey" : "proceedToCheckoutButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : ".cart_total_price ~ .check_out, a.check_out",
+  "timestamp" : 1787050903.102704800
+}, {
+  "page" : "cartPage",
+  "elementKey" : "emptyCartMessage",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "#empty_cart",
+  "timestamp" : 1787050903.103741900
+}, {
+  "page" : "checkoutPage",
+  "elementKey" : "addressDetailsSection",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "#address_delivery",
+  "timestamp" : 1787050903.104778100
+}, {
+  "page" : "checkoutPage",
+  "elementKey" : "commentTextarea",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//textarea[@name='message']",
+  "timestamp" : 1787050903.105814400
+}, {
+  "page" : "checkoutPage",
+  "elementKey" : "placeOrderLink",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "a.check_out",
+  "timestamp" : 1787050903.106850500
+}, {
+  "page" : "paymentPage",
+  "elementKey" : "nameOnCardInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "name",
+  "strategyValue" : "name_on_card",
+  "timestamp" : 1787050903.109397400
+}, {
+  "page" : "paymentPage",
+  "elementKey" : "cardNumberInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "name",
+  "strategyValue" : "card_number",
+  "timestamp" : 1787050903.110451100
+}, {
+  "page" : "paymentPage",
+  "elementKey" : "cvcInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "name",
+  "strategyValue" : "cvc",
+  "timestamp" : 1787050903.111525200
+}, {
+  "page" : "paymentPage",
+  "elementKey" : "expiryMonthInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "name",
+  "strategyValue" : "expiry_month",
+  "timestamp" : 1787050903.112580500
+}, {
+  "page" : "paymentPage",
+  "elementKey" : "expiryYearInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "name",
+  "strategyValue" : "expiry_year",
+  "timestamp" : 1787050903.113625200
+}, {
+  "page" : "paymentPage",
+  "elementKey" : "payButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//button[contains(text(),'Pay and Confirm Order')]",
+  "timestamp" : 1787050903.114661800
+}, {
+  "page" : "orderPlacedPage",
+  "elementKey" : "orderPlacedHeading",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//h2[contains(text(),'Order Placed')]",
+  "timestamp" : 1787050903.115707400
+}, {
+  "page" : "orderPlacedPage",
+  "elementKey" : "downloadInvoiceLink",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : ".btn.btn-default.check_out",
+  "timestamp" : 1787050903.116798000
+}, {
+  "page" : "orderPlacedPage",
+  "elementKey" : "continueButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//a[contains(text(),'Continue')]",
+  "timestamp" : 1787050903.117846600
+}, {
+  "page" : "contactUsPage",
+  "elementKey" : "nameInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "name",
+  "strategyValue" : "name",
+  "timestamp" : 1787050903.118883300
+}, {
+  "page" : "contactUsPage",
+  "elementKey" : "emailInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "name",
+  "strategyValue" : "email",
+  "timestamp" : 1787050903.120970300
+}, {
+  "page" : "contactUsPage",
+  "elementKey" : "subjectInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "name",
+  "strategyValue" : "subject",
+  "timestamp" : 1787050903.122007200
+}, {
+  "page" : "contactUsPage",
+  "elementKey" : "messageTextarea",
+  "healedFromIndex" : 1,
+  "strategyType" : "name",
+  "strategyValue" : "message",
+  "timestamp" : 1787050903.123060000
+}, {
+  "page" : "contactUsPage",
+  "elementKey" : "uploadFileInput",
+  "healedFromIndex" : 1,
+  "strategyType" : "css",
+  "strategyValue" : "input[type='file']",
+  "timestamp" : 1787050903.124108400
+}, {
+  "page" : "contactUsPage",
+  "elementKey" : "submitButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "id",
+  "strategyValue" : "submit",
+  "timestamp" : 1787050903.125150200
+}, {
+  "page" : "contactUsPage",
+  "elementKey" : "successMessage",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//div[contains(@class,'alert-success')]",
+  "timestamp" : 1787050903.126189600
+}, {
+  "page" : "contactUsPage",
+  "elementKey" : "homeButton",
+  "healedFromIndex" : 1,
+  "strategyType" : "xpath",
+  "strategyValue" : "//a[contains(@class,'btn-success')]",
+  "timestamp" : 1787050903.127226000
+} ]
