@@ -32,6 +32,13 @@ against status code, response body fields, and (for GET single) a JSON Schema.
 - **Not theoretical**: during development this framework caught two of its own wrong primary
   locators (a bad `id` on a file-upload field, a slightly-off XPath on a confirmation heading) —
   both healed automatically via fallback candidates, then were corrected for accuracy.
+- **Quantified, not just claimed**: [`SelfHealingBenchmarkTest`](src/test/java/com/automation/hybrid/selfhealing/SelfHealingBenchmarkTest.java)
+  runs the real `SelfHealingLocator.find()` against every one of the 70 elements actually defined
+  in `locators.json` (12 pages), with a mocked `WebDriver` breaking each primary locator in turn —
+  no live browser needed, so it runs in any CI environment. Result: 70/70 (100%) resolve via their
+  first fallback and record a real `HealingEvent`; the committed evidence is in
+  [`samples/selfhealing-benchmark/`](samples/selfhealing-benchmark/). See the
+  [README's Metrics section](README.md#metrics--impact).
 
 ## Execution backends
 
@@ -124,5 +131,5 @@ including catching and fixing two real self-healing locator bugs along the way.
 ## Tech stack
 
 Java 17 · Maven · Selenium 4 (Selenium Manager) · TestNG 7 · REST Assured 5 · Allure 2 ·
-ExtentReports 5 · Jackson · Log4j2 · Docker (Selenium Grid) · BrowserStack Automate ·
+ExtentReports 5 · Jackson · Log4j2 · Mockito · Docker (Selenium Grid) · BrowserStack Automate ·
 GitHub Actions

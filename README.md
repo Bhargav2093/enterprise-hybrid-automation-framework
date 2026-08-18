@@ -25,6 +25,28 @@ together in a real project: a shared driver/config layer feeding both UI and API
 locator-resilience strategy that survives real DOM churn, and a CI pipeline that proves the Grid
 path actually works rather than just existing as an unverified YAML file.
 
+## Why hybrid (Selenium + REST Assured), and when to use which
+
+They're not interchangeable, and this framework doesn't pretend they are — it just gives both a
+shared home:
+
+- **Selenium (UI)** is for asserting what a *user* actually experiences: does the checkout flow
+  render, can a real click land on a real button, does a self-healing locator survive a DOM
+  change. Slower, browser-dependent, and the only layer that can catch a front-end regression a
+  passing API would never reveal.
+- **REST Assured (API)** is for asserting what the *system* actually does: status codes, response
+  shape, JSON Schema conformance, CRUD correctness — no browser, no rendering cost, an order of
+  magnitude faster per assertion. It's also the right layer for edge cases (404s, malformed
+  payloads) that are slow and brittle to provoke through a UI.
+- **Sharing one framework** — not two separate repos — means both layers reuse the same
+  `ConfigManager`, retry policy, and dual Allure/ExtentReports reporting, and a single suite
+  (`testng-regression.xml`) can validate a feature end-to-end at both layers instead of a UI test
+  quietly assuming the API underneath is fine.
+
+Rule of thumb used throughout this repo's test suites: if a check can be made at the API layer
+without losing the thing you're actually trying to verify, it lives in `tests/api`; UI tests are
+reserved for what genuinely requires a rendered page.
+
 ## Architecture
 
 ```mermaid
@@ -151,6 +173,9 @@ mvn test -DsuiteXmlFile=src/test/resources/testng-api.xml
 
 # Cross-browser suite (Chrome + Firefox + Edge in parallel)
 mvn test -DsuiteXmlFile=src/test/resources/testng-crossbrowser.xml
+
+# Self-healing benchmark (no browser needed - see Metrics/impact below)
+mvn test -Pselfhealing-benchmark
 ```
 
 Key `-D` overrides (see [`config.properties`](src/test/resources/config.properties) for defaults):
@@ -218,10 +243,53 @@ Two complementary HTML reports come out of every run, driven by the same `TestLi
 4. Inspect `target/self-healing-report.json`: it contains a `HealingEvent` recording which element
    healed, which fallback strategy was used, and when.
 
+## Metrics / impact
+
+![Demo: SelfHealingBenchmarkTest breaking every primary locator and healing all of them](samples/selfhealing-benchmark/demo.gif)
+
+A live browser can't run in every environment this repo gets built in (headless Chrome needs a
+real display/loopback stack a locked-down CI sandbox may not provide), so instead of *claiming*
+a healing rate, [`SelfHealingBenchmarkTest`](src/test/java/com/automation/hybrid/selfhealing/SelfHealingBenchmarkTest.java)
+proves it directly against the real `locators.json` and the real `SelfHealingLocator.find()` —
+just with a mocked `WebDriver` standing in for the browser, so it runs anywhere `mvn test` does:
+
+| Metric | Value |
+|---|---|
+| Elements defined (`locators.json`) | 70, across 12 pages |
+| Elements with ≥1 fallback locator | **70 / 70 (100%)** |
+| Average candidate locators per element | 2.11 |
+| Real `HealingEvent`s proven in one run | 70 / 70 |
+
+For every one of those 70 elements, the test breaks the primary locator, asserts
+`SelfHealingLocator.find()` still resolves via the first fallback, and confirms a real
+`HealingEvent` was recorded — not a mocked assertion, the actual production healing code path.
+Run it yourself and inspect the committed evidence in
+[`samples/selfhealing-benchmark/`](samples/selfhealing-benchmark/) (`self-healing-report.json` —
+the real `HealingReportManager` output — plus `benchmark-summary.json`):
+
+```bash
+mvn test -Pselfhealing-benchmark
+```
+
+The GIF above is a scripted, deterministic rendering ([`scripts/generate_demo_gif.py`](scripts/generate_demo_gif.py))
+of that exact command's real captured output — not a screen recording, since a live browser isn't
+guaranteed to run in every environment this gets built in. Regenerate it with
+`pip install pillow && python scripts/generate_demo_gif.py`.
+
+**What this means for maintenance:** a locator-breaking DOM change (a renamed `id`, a shifted
+`data-qa` attribute) is one of the most common sources of Selenium suite maintenance work. Without
+a fallback, each one of these 70 elements breaking would need its own source change, PR, and
+review cycle. With every element carrying a working fallback today, that entire class of
+maintenance PR is avoided for as long as the fallback candidate keeps matching — not a
+hypothetical: this is the same mechanism that healed two real wrong-primary-locator bugs caught
+during this framework's own development (see [CAPABILITIES.md](CAPABILITIES.md#self-healing-locators)).
+
 ## CI
 
 See [`.github/workflows/ci.yml`](.github/workflows/ci.yml):
 
+- **`selfhealing-benchmark`** — proves self-healing coverage against every defined locator, no
+  browser required (see [Metrics / impact](#metrics--impact)); runs on every push/PR.
 - **`smoke`** — local headless Chrome + API smoke suite on every push/PR.
 - **`grid-execution`** — the same smoke suite run against a real Selenium Grid (hub + chrome node
   started as GitHub Actions `services:`), proving the Grid execution path end-to-end in CI.
@@ -232,4 +300,4 @@ See [`.github/workflows/ci.yml`](.github/workflows/ci.yml):
 ## Tech stack
 
 Java 17 · Maven · Selenium 4 (Selenium Manager) · TestNG · REST Assured · Allure · ExtentReports · Log4j2 ·
-Jackson · Docker (Selenium Grid) · BrowserStack Automate · GitHub Actions
+Jackson · Mockito · Docker (Selenium Grid) · BrowserStack Automate · GitHub Actions
