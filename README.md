@@ -6,6 +6,8 @@
 ![Selenium](https://img.shields.io/badge/Selenium-4-43B02A)
 ![TestNG](https://img.shields.io/badge/TestNG-7-blue)
 
+> Part of the [Quality Engineering Reference Architecture](https://github.com/Bhargav2093/quality-engineering-reference-architecture) — implements the [Test Architecture](https://github.com/Bhargav2093/quality-engineering-reference-architecture/blob/develop/docs/test-architecture.md) and [CI/CD Quality Gates](https://github.com/Bhargav2093/quality-engineering-reference-architecture/blob/develop/docs/ci-cd-quality-gates.md) pillars.
+
 A production-grade, hybrid (UI + API) test automation framework built in Java: **Selenium 4** with
 **self-healing locators**, **REST Assured**, **TestNG** orchestration, dual **Allure** +
 **ExtentReports** reporting, and three interchangeable execution backends — local, self-hosted
